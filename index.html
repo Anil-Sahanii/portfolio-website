@@ -3,111 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transforming Ideas into Reality - Anil Kumar Sahani</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Anil Kumar Sahani's Professional Portfolio showcasing my skills, projects, and more.">
+    <meta name="keywords" content="Anil Kumar Sahani, Portfolio, Developer, Programmer, Projects, Web Development, Machine Learning">
+    <meta name="author" content="Anil Kumar Sahani">
+    <meta property="og:title" content="Anil Kumar Sahani - Professional Portfolio">
+    <meta property="og:description" content="Welcome to my portfolio website. Here, I showcase my skills, projects, and experience.">
+    <meta property="og:image" content="images/profile-pic.jpg">
+    <meta property="og:url" content="https://www.yourportfolio.com">
+    <title>Anil Kumar Sahani | Professional Portfolio</title>
+
+    <!-- Link to External Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <button id="dark-mode-toggle">Toggle Dark Mode</button>
-    </header>
 
-    <!-- Home Section -->
-    <section id="home" class="home-section">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hi, I'm Anil Kumar Sahani, a B.Tech CSE student with a passion for problem-solving, AI, and innovation.</p>
-        <img src="images/my_picture.jpg" alt="My Picture" class="profile-pic">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Transforming Ideas into Reality</h1>
+        <p>Welcome to my portfolio - Anil Kumar Sahani</p>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
+    <section id="about">
         <h2>About Me</h2>
-        <div class="about-container">
-            <img src="images/my_picture.jpg" alt="My Picture" class="about-pic">
-            <p>
-                I am currently pursuing my B.Tech in Computer Science at KIIT University with a GPA of 8.2/10. 
-                I am enthusiastic about technology and specialize in areas like Artificial Intelligence, Machine Learning, and Cybersecurity. 
-                I actively participate in coding competitions and contribute to projects that make a difference.
-            </p>
+        <div class="about-content">
+            <img src="images/profile-pic.jpg" alt="Anil Kumar Sahani" />
+            <p>Hello! I'm Anil Kumar Sahani, a B.Tech CSE student with a passion for problem-solving and technology. I specialize in areas like Machine Learning, AI, and Web Development. Welcome to my professional portfolio!</p>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects-section">
+    <section id="projects">
         <h2>Projects</h2>
         <div class="project-card">
-            <h3>1. TCP Socket Chat Application</h3>
-            <p>
-                Developed a chat server and client application using C programming. 
-                Features include message exchange, quit functionality, and message history storage.
-            </p>
-            <a href="#">View on GitHub</a>
+            <a href="images/project1-large.jpg" data-lightbox="project-gallery" data-title="Project 1">
+                <img src="images/project1-thumbnail.jpg" alt="Project 1" />
+            </a>
+            <h3>Project 1</h3>
+            <p>Developed a TCP socket chat application using C programming.</p>
         </div>
         <div class="project-card">
-            <h3>2. Fractional Knapsack Algorithm</h3>
-            <p>
-                Implemented a fractional knapsack algorithm using the heap sort technique to optimize profit calculation under given constraints.
-            </p>
-            <a href="#">View on GitHub</a>
+            <a href="images/project2-large.jpg" data-lightbox="project-gallery" data-title="Project 2">
+                <img src="images/project2-thumbnail.jpg" alt="Project 2" />
+            </a>
+            <h3>Project 2</h3>
+            <p>Implemented a Fractional Knapsack algorithm using heap sort.</p>
         </div>
-        <div class="project-card">
-            <h3>3. Huffman Encoding Algorithm</h3>
-            <p>
-                Built a Huffman encoding tool in C to compress data efficiently, using a Min-Priority Queue for constructing the Huffman tree.
-            </p>
-            <a href="#">View on GitHub</a>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-        <h2>Skills</h2>
-        <ul>
-            <li><b>Programming Languages:</b> C, Python, Java, JavaScript</li>
-            <li><b>Web Development:</b> HTML, CSS, React.js</li>
-            <li><b>Tools & Frameworks:</b> Git, Docker, VS Code</li>
-            <li><b>Core Subjects:</b> Data Structures, Algorithms, Computer Networks</li>
-            <li><b>Soft Skills:</b> Leadership, Communication, Team Collaboration</li>
-        </ul>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="achievements-section">
-        <h2>Achievements</h2>
-        <ul>
-            <li>Winner of <b>Hackathon KIIT 2024</b> for creating a smart attendance system.</li>
-            <li>Secured 2nd place in the <b>CodeFest Programming Contest</b>.</li>
-            <li>Completed a <b>Machine Learning Specialization</b> on Coursera by Stanford University.</li>
-            <li>Published a research paper on <b>AI in Cybersecurity</b> in the KIIT Journal.</li>
-        </ul>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <section id="contact">
         <h2>Contact Me</h2>
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required />
+            <input type="email" id="email" placeholder="Your Email" required />
+            <textarea id="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send</button>
         </form>
     </section>
 
-    <div id="progress-bar"></div>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Anil Kumar Sahani | All rights reserved</p>
+    </footer>
+
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <!-- Custom Script -->
     <script src="script.js"></script>
+
 </body>
 </html>
