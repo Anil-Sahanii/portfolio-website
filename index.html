@@ -3,78 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anil Kumar Sahani's Professional Portfolio showcasing my skills, projects, and more.">
-    <meta name="keywords" content="Anil Kumar Sahani, Portfolio, Developer, Programmer, Projects, Web Development, Machine Learning">
-    <meta name="author" content="Anil Kumar Sahani">
-    <meta property="og:title" content="Anil Kumar Sahani - Professional Portfolio">
-    <meta property="og:description" content="Welcome to my portfolio website. Here, I showcase my skills, projects, and experience.">
-    <meta property="og:image" content="images/profile-pic.jpg">
-    <meta property="og:url" content="https://www.yourportfolio.com">
-    <title>Anil Kumar Sahani | Professional Portfolio</title>
-
-    <!-- Link to External Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Lightbox CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    <title>Anil Kumar Sahani - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Navbar -->
+    <header id="navbar">
+        <div class="logo">
+            <h1>Anil Kumar Sahani</h1>
+            <p>AI & ML Enthusiast</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <h1>Transforming Ideas into Reality</h1>
-        <p>Welcome to my portfolio - Anil Kumar Sahani</p>
+    <section id="home" class="parallax">
+        <div class="hero-content">
+            <h2>Hello, I'm Anil Kumar Sahani</h2>
+            <p>AI, Machine Learning, and Data Science Enthusiast</p>
+            <a href="#projects" class="btn">Explore My Work</a>
+        </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <img src="images/profile-pic.jpg" alt="Anil Kumar Sahani" />
-            <p>Hello! I'm Anil Kumar Sahani, a B.Tech CSE student with a passion for problem-solving and technology. I specialize in areas like Machine Learning, AI, and Web Development. Welcome to my professional portfolio!</p>
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am passionate about solving problems using AI, machine learning, and data science. Currently pursuing a B.Tech in CSE at KIIT University, I am working on a hyperhidrosis prediction project. I actively participate in coding challenges and aim to contribute to innovative technologies.</p>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-card">
-            <a href="images/project1-large.jpg" data-lightbox="project-gallery" data-title="Project 1">
-                <img src="images/project1-thumbnail.jpg" alt="Project 1" />
-            </a>
-            <h3>Project 1</h3>
-            <p>Developed a TCP socket chat application using C programming.</p>
-        </div>
-        <div class="project-card">
-            <a href="images/project2-large.jpg" data-lightbox="project-gallery" data-title="Project 2">
-                <img src="images/project2-thumbnail.jpg" alt="Project 2" />
-            </a>
-            <h3>Project 2</h3>
-            <p>Implemented a Fractional Knapsack algorithm using heap sort.</p>
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-card">
+                <img src="project1.jpg" alt="Project 1">
+                <div class="overlay">
+                    <h3>Hyperhidrosis Prediction Model</h3>
+                    <p>ML-based model to predict hyperhidrosis using clinical data.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="project2.jpg" alt="Project 2">
+                <div class="overlay">
+                    <h3>AI Chatbot</h3>
+                    <p>AI-powered chatbot for customer support and real-time interactions.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2>Contact Me</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required />
-            <input type="email" id="email" placeholder="Your Email" required />
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+        <div class="container">
+            <h2>Contact</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Anil Kumar Sahani | All rights reserved</p>
+        <div class="social-links">
+            <a href="https://github.com/anilsahani" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/anilsahani/" target="_blank">LinkedIn</a>
+        </div>
+        <p>&copy; 2025 Anil Kumar Sahani. All Rights Reserved.</p>
     </footer>
 
-    <!-- Lightbox JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-
-    <!-- Custom Script -->
     <script src="script.js"></script>
-
 </body>
 </html>
