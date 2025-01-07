@@ -1,34 +1,26 @@
-// Select the dark mode toggle button
 const darkModeToggle = document.getElementById('dark-mode-toggle');
-
-// Function to toggle dark mode
 darkModeToggle.addEventListener('click', () => {
-    // Toggle the "dark-mode" class on the body
     document.body.classList.toggle('dark-mode');
-
-    // Update the button text based on the current mode
-    if (document.body.classList.contains('dark-mode')) {
-        darkModeToggle.textContent = 'Light Mode';
-    } else {
-        darkModeToggle.textContent = 'Dark Mode';
-    }
+    darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
 });
 
-// Form Submission Handling
 const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent form from reloading the page
-
-    // Get form data
+    event.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
-
-    // Simple validation
     if (name && email && message) {
-        alert(`Thank you, ${name}! Your message has been sent successfully.`);
-        contactForm.reset(); // Clear the form fields
+        alert(`Thank you, ${name}! Your message has been sent.`);
+        contactForm.reset();
     } else {
-        alert('Please fill out all fields before submitting.');
+        alert('Please fill out all fields.');
     }
+});
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercentage = (scrollTop / docHeight) * 100;
+    document.getElementById('progress-bar').style.width = scrollPercentage + '%';
 });
