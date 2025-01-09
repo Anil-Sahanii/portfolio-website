@@ -1,89 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anil Kumar Sahani - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anil Kumar Sahani - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    :root {
+      --primary-color: #6a11cb;
+      --secondary-color: #2575fc;
+      --text-color: #333;
+      --bg-color: #fff;
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #1f1f1f;
+      --secondary-color: #444;
+      --text-color: #f4f4f4;
+      --bg-color: #121212;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      scroll-behavior: smooth;
+    }
+    header {
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+    }
+    header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    nav {
+      background: var(--primary-color);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--secondary-color);
+    }
+    nav .social-icon {
+      color: white;
+      font-size: 1.5rem;
+      margin-left: 15px;
+      transition: color 0.3s;
+    }
+    nav .social-icon:hover {
+      color: var(--secondary-color);
+    }
+    .about, .projects, .skills, .contact {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .about img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    .skills .progress {
+      height: 1.5rem;
+      background: #f4f4f4;
+      margin-bottom: 1rem;
+    }
+    .skills .progress-bar {
+      background: var(--primary-color);
+    }
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+      position: relative;
+    }
+    footer .social-links {
+      margin-top: 10px;
+    }
+    footer .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    footer .social-links a:hover {
+      color: var(--secondary-color);
+    }
+    footer .chatbox {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--secondary-color);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    footer .chatbox:hover {
+      background: var(--primary-color);
+    }
+    .chatbox-expanded {
+      transition: all 0.3s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      height: 400px;
+      display: none;
+      flex-direction: column;
+    }
+    .chatbox-expanded header {
+      background: var(--primary-color);
+      color: white;
+      padding: 10px;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .close-chatbox {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .close-chatbox:hover {
+      color: var(--secondary-color);
+    }
+    .chatbox-expanded .messages {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 10px;
+    }
+    .chatbox-expanded .input-area {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    .chatbox-expanded input {
+      flex-grow: 1;
+      border: none;
+      padding: 10px;
+    }
+    .chatbox-expanded button {
+      background: var(--secondary-color);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .chatbox-expanded button:hover {
+      background: var(--primary-color);
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--secondary-color);
+      color: white;
+      padding: 10px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .theme-toggle:hover {
+      background: var(--primary-color);
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <header id="navbar">
-        <div class="logo">
-            <h1>Anil Kumar Sahani</h1>
-            <p>AI & ML Enthusiast</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+
+<header data-aos="fade-down">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+    <img src="profile.jpg" alt="Anil Kumar Sahani">
+    <div>
+      <h1>Anil Kumar Sahani</h1>
+      <p>Software Engineer | Problem Solver | Web Developer</p>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about" class="about" data-aos="fade-up">
+  <img src="profile.jpg" alt="Anil Kumar Sahani">
+  <h2>About Me</h2>
+  <p>I am Anil Kumar Sahani, a passionate software engineer and web developer. I specialize in solving real-world problems with efficient solutions.</p>
+</section>
+
+<section id="projects" class="projects" data-aos="fade-right">
+  <h2>Projects</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Project 1: Portfolio Website</h3>
+        <p>A responsive portfolio website to showcase my work.</p>
+      </div>
+      <div class="col-md-6">
+        <h3>Project 2: Chat Application</h3>
+        <p>A real-time chat application built using WebSocket and Node.js.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills" data-aos="fade-left">
+  <h2>Skills</h2>
+  <div class="container">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 90%;">C Programming - 90%</div>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 80%;">Web Development - 80%</div>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 70%;">Machine Learning - 70%</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact" data-aos="zoom-in">
+  <h2>Contact Me</h2>
+  <form>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Your Name">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Your Email">
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Message</label>
+      <textarea class="form-control" id="message" rows="3" placeholder="Your Message"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Anil Kumar Sahani. All rights reserved.</p>
+  <div class="social-links">
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="chatbox" onclick="toggleChatbox()">What can I do for you today?</div>
+  <div class="chatbox-expanded" id="chatbox-expanded">
+    <header>
+      Chat with Me!
+      <button class="close-chatbox" onclick="toggleChatbox()">X</button>
     </header>
+    <div class="messages" id="chat-messages"></div>
+    <div class="input-area">
+      <input type="text" id="chat-input" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+</footer>
 
-    <!-- Hero Section -->
-    <section id="home" class="parallax">
-        <div class="hero-content">
-            <h2>Hello, I'm Anil Kumar Sahani</h2>
-            <p>AI, Machine Learning, and Data Science Enthusiast</p>
-            <a href="#projects" class="btn">Explore My Work</a>
-        </div>
-    </section>
+<div class="theme-toggle" onclick="toggleTheme()">Toggle Theme</div>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I am passionate about solving problems using AI, machine learning, and data science. Currently pursuing a B.Tech in CSE at KIIT University, I am working on a hyperhidrosis prediction project. I actively participate in coding challenges and aim to contribute to innovative technologies.</p>
-        </div>
-    </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init();
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="project-card">
-                <img src="project1.jpg" alt="Project 1">
-                <div class="overlay">
-                    <h3>Hyperhidrosis Prediction Model</h3>
-                    <p>ML-based model to predict hyperhidrosis using clinical data.</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="project2.jpg" alt="Project 2">
-                <div class="overlay">
-                    <h3>AI Chatbot</h3>
-                    <p>AI-powered chatbot for customer support and real-time interactions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  function toggleChatbox() {
+    const chatbox = document.getElementById('chatbox-expanded');
+    chatbox.style.display = chatbox.style.display === 'none' || chatbox.style.display === '' ? 'flex' : 'none';
+  }
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <form id="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
-    </section>
+  function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const messages = document.getElementById('chat-messages');
+    const message = input.value.trim();
 
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="https://github.com/anilsahani" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/anilsahani/" target="_blank">LinkedIn</a>
-        </div>
-        <p>&copy; 2025 Anil Kumar Sahani. All Rights Reserved.</p>
-    </footer>
+    if (message) {
+      const userMessage = document.createElement('div');
+      userMessage.textContent = message;
+      userMessage.style.margin = '10px 0';
+      userMessage.style.textAlign = 'right';
 
-    <script src="script.js"></script>
+      messages.appendChild(userMessage);
+      input.value = '';
+
+      setTimeout(() => {
+        const botMessage = document.createElement('div');
+        botMessage.textContent = `You said: "${message}"`;
+        botMessage.style.margin = '10px 0';
+        botMessage.style.textAlign = 'left';
+
+        messages.appendChild(botMessage);
+      }, 1000);
+    }
+  }
+
+  function toggleTheme() {
+    const currentTheme = document.body.getAttribute('data-theme');
+    document.body.setAttribute('data-theme', currentTheme === 'dark' ? '' : 'dark');
+  }
+</script>
 </body>
 </html>
